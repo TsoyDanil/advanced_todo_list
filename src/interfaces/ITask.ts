@@ -4,5 +4,5 @@ export default interface ITask {
     id: string,
     task: string,
     status: ETaskStatus,
-    publishDate: Date
+    publishDate: string
 }
