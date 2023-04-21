@@ -33,8 +33,12 @@ export const tasksSlice = createSlice({
                     state.tasksList[index].status = ETaskStatus.FINISHED
                     break
             }
+        },
+        finishTask(state, action){
+            const index = state.tasksList.findIndex((task: ITask) => task.id === action.payload)
+            state.tasksList.splice(index, 1)
         }
     }
 })
 
-export const {addNewTask, changeTaskStatus} = tasksSlice.actions
+export const {addNewTask, changeTaskStatus, finishTask} = tasksSlice.actions
