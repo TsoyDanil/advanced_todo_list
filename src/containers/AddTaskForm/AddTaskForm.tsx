@@ -37,8 +37,14 @@ const AddTaskForm: React.FunctionComponent = (): React.ReactElement => {
             case (ETaskStatus.FINISHED): 
                 setTaskStatus(ETaskStatus.FINISHED)
                 break
-        }
+        }        
     }
+
+    useEffect(() => {
+        setTask(prevState => {
+            return {...prevState, status: taskStatus}
+        })
+    }, [taskStatus])
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault()
